@@ -3,14 +3,39 @@ body {
 }
 
 
-.col {
-    width: 100%;
+/*.col {*/
+    /*width: 100%;*/
+/*}*/
+.search-area {
+    margin-top: 2%;
 }
 
 .input-wrapper {
     width: 75%;
     display: inline-block;
 }
+.tag {
+    margin-top: 4%;
+    background: rgba(191, 239, 255, 0.92);
+
+}
+
+.table1 {
+    /*background: rgba(255, 255, 255, 1);*/
+    width: 1100px;
+
+}
+.main-row {
+    height: 610px;
+}
+.main-bg {
+    background: rgba(255, 255, 255, 0.92);
+    margin-top: 4%;
+    width: 1100px;
+    height: 100%;
+
+}
+
 
 .form-control {
     background: url(../img/search.png) left center no-repeat #fff;
