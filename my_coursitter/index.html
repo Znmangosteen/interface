@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
 	<head>
 		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
 		<title></title>
 		<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -11,26 +12,21 @@
 		<style type="text/css">
 			/* document.documentElement.style.overflow='hidden'; */
 			.outer {
-				width: 1800px;
+				width: 1600px;
 				height: 900px;
+				left: -1600px;
+				float: left;
 				position: relative;
-				left: 1600px;
-				margin-top: 50px;
-				margin-left: 300px;
-				float: right;
-				position: absolute;
+				margin: 50px auto;
 				vertical-align: middle;
-				/* background-color: white; */
-				/* filter: blur(2px); */
-				/* background: rgba(0, 255, 0, 0.31); */
 				inline-block;
 				z-index: 2;
 			}
 
 			.bg {
-				width: 1900px;
-				height: 1000px;
-				position: absolute;
+				width: 100%;
+				height: 100%;
+				position: fixed;
 				background: url("./bg.jpg") no-repeat fixed;
 				background-size: cover;
 				padding: 0px;
@@ -38,66 +34,43 @@
 				box-sizing: border-box;
 				z-index: -1;
 			}
-			
-			#span{
-				width: 30px;
-				height: 200px;
-				font: "microsoft yahei";
+
+			#span {
+				width: 50px;
+				float: right;
+				text-align: center;
+				padding: 15px;
 				font-size: 16px;
 				color: white;
-				text-align: center;
-				padding: 7px;
-				position: absolute;
+				position: relative;
 				background: rgba(0, 0, 0, 0.31);
-				left: -30px;
-				line-height: 20px;
-				top: 450px;
 			}
-			/* .outer:after{
-				content: "";
-				width:100%;
-				height:100%;
-				position: absolute;
-				left:0;
-				top:0;
-				background: inherit;
-				filter: blur(2px);
-				z-index: 2;
-			}
-			 */
+			
 
 			#card-contain {
-				width: 100%;
-				height: 800px;
-				margin: auto;
-				margin-bottom: 40px;
-				margin-top: 40px;
-				position: absolute;
+				/* width: 100%; */
+				height: 100%;
+				float: left;
 				list-style: none;
 				font-size: 16px;
 				font: "黑体";
 				overflow: auto;
+				padding: 10px;
 				background-color: white;
 				background: rgba(255, 255, 255, 0.3)
 			}
 
 			#table-contain {
-				width: 100%;
-				height: 800px;
-				margin: auto;
-				position: absolute;
-				margin-bottom: 40px;
-				margin-top: 40px;
+				height: 100%;
+				margin-left: 30px;
 				border-radius: 10px;
 				overflow: hidden;
-				background-color: red;
 			}
 
 			.card {
-				width: 80%;
+				width: 300px;
 				text-align: center;
 				height: 200px;
-				/* position: absolute; */
 				margin: auto;
 				margin-top: 10px;
 				margin-bottom: 10px;
@@ -110,33 +83,36 @@
 				height: 100px;
 				text-align: center;
 				vertical-align: middle;
+
 			}
-			
 		</style>
 		<script type="text/javascript">
 			window.onload = function() {
 				var oDiv1 = document.getElementById('div1');
-				var oBtn1 = document.getElementById('btn1');
-				var d = document.getElementById('d1');
-				oDiv1.onmouseover = function() {
-					startMove(this, 'margin-left', -1450);
-				};
-				oDiv1.onmouseout = function() {
-					startMove(this, 'margin-left', 300);
+				var oBtn = document.getElementById('span');
+				var begin = getStyle(oDiv1, 'left')
+				begin= parseInt(begin.substr(0,begin.length-2));
+				span.onclick = function() {
+					if (oBtn.style.background == 'rgba(0, 0, 0, 0.31)'){
+						startMove(oDiv1, 'left', begin+oDiv1.offsetWidth);
+						oBtn.style.background = 'rgba(0, 255, 0, 0.31)';
+					}else{
+						startMove(oDiv1, 'left', begin);
+						oBtn.style.background = 'rgba(0, 0, 0, 0.31)';
+					}
 				};
 			};
 		</script>
 	</head>
-	<body>
-		<div class="bg" >
-		</div>
-		<div id="div1" class="outer">
-			<span id='span'>
+	<body >
+		<div class="bg">
+			<div id='span'>
 				排课信息
-			</span>
-			<div style="background: rgba(0, 0, 0, 0.3);width: 100%; height: 100%;" class="container">
-				<div class="row">
-					<div class="col-md-3" style=" margin-left: 50px;">
+			</div>
+			<div id="div1" class="outer">
+				
+				<div style="background: rgba(0, 0, 0, 0.3);width: 100%; height: 100%;">
+					<div style="height: 100%; padding: 40px;">
 						<div id="card-contain">
 							<li>
 								<div class="card"></div>
@@ -160,11 +136,8 @@
 								<div class="card"></div>
 							</li>
 						</div>
-					</div>
-					<div class="col-md-8" style="margin-left: 20px;">
-						
 						<div id="table-contain">
-							<table class="table table-bordered">
+							<table class="table" style="height: 100%;">
 								<thead>
 									<td class="active"></td>
 									<td class="active">星期一</td>
