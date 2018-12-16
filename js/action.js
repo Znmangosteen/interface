@@ -1,13 +1,18 @@
 window.onload = function () {
     var oDiv1 = document.getElementById('label');
     oDiv1.onmouseover = function () {
-        changeSize(this, 500, 500);
+        // changeSize(this, 500, 500);
+        document.getElementById("label").classList.replace("col-md-1","col-md-4")
+
     };
     oDiv1.onmouseout = function () {
-        changeSize(this, 200, 100);
+        // changeSize(this, 200, 100);
+        document.getElementById("label").classList.replace("col-md-4","col-md-1")
+
     };
 
 };
+
 
 function getStyle(obj, name) {
     if (obj.currentStyle) {
