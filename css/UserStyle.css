@@ -57,3 +57,15 @@ body {
     font-family: Avenir-Black, sans-serif;
     width: 136px;
 }
+
+#label {
+    z-index: 150;
+}
+
+#class_table {
+    z-index: 100;
+    position: fixed;
+}
+#a {
+    z-index: 100;
+}
