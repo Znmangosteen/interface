@@ -60,6 +60,7 @@ body {
 
 #label {
     z-index: 150;
+    height: 50px;
 }
 
 #class_table {
