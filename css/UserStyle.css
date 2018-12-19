@@ -16,7 +16,7 @@ body {
 }
 .tag {
     margin-top: 4%;
-    background: rgba(191, 239, 255, 0.92);
+    /*background: rgba(191, 239, 255, 0.92);*/
 
 }
 
@@ -57,10 +57,21 @@ body {
     font-family: Avenir-Black, sans-serif;
     width: 136px;
 }
+.label_title {
+    border-bottom: 1px solid #1b1e21;
+    padding: 5%;
+
+}
+
+.label_button {
+    margin: 0.1% ;
+}
+
 
 #label {
     z-index: 150;
-    height: 500px;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 #class_table {
