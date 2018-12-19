@@ -34,7 +34,7 @@ function addClass(oCourse) {
 	res += "</p><p>任课教师：";
 	res += oCourse.teachers;
 	res +=
-		"</p><div class=\"form-inline\"><input type=\"text\" class=\"mytxt\" id=\"coin\" placeholder=\"请输入选课币\" /><input class=\"btn btn-select\" type=\"button\" name=\"btn\" id=\"btn\" value=\"select\" onclick=fillTable(this) /></div></li>";
+		"</p><div class=\"form-inline\"><input type=\"text\" class=\"mytxt\" id=\"coin\" placeholder=\"请输入选课币\" /><input class=\"btn mybtn-select\" type=\"button\" name=\"btn\" id=\"btn\" value=\"select\" onclick=fillTable(this) /></div></li>";
 	return res;
 }
 
