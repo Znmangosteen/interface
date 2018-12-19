@@ -1,89 +1,69 @@
-// 右侧宽度可调整
-/** opt参数：
- * onmousemove: 为必须参数，需定义宽度控件宽度调整的代码
- * regionWidth: 鼠标点击的响应宽度范围（px），可不传
- * onmouseup: 鼠标up事件回调代码
- * isCatch: 是否捕获回调函数的异常，默认true
- */
-$.fn.onEastDrag = function(opt) {
-	$(this).bind('mousedown', function(downEvent) {
-		var isMoving = false;
-		if (opt.isCatch == undefined || opt.isCatch == null) opt.isCatch = true;
-		var _thisEl = $(this); //获取到控件
-		var elPosLeft = _thisEl.offset().left; // 左侧边界位置
-		var startPos = downEvent.pageX; // 鼠标起始位置
-		var startTime = new Date().getTime();
-		var oriWidth = _thisEl.width();
-		var _parentEl = _thisEl.parent();
-		// 右侧边界位置
-		var elPosRight = elPosLeft + oriWidth;
-		var regionWidth = opt.regionWidth && opt.regionWidth > 0 ? opt.regionWidth : 6; // 点击响应区域，默认6px宽度
-		if (elPosRight - regionWidth <= startPos && startPos <= elPosRight) {
-			isMoving = true; //如果在右侧边缘偏左6px内.允许移动
-			_parentEl.append(
-				'<div id="move-mask-laver" style="position:fixed;width: 100%;height: 100%;z-index: 9999;opacity: 0;top: 0px;cursor: col-resize;"></div>'
-			);
+function insertCard() {
+	var oUl_course = document.getElementById('courseList');
+	var oLi = document.createElement('li');
+	//test
+	var testCourse = getInfo();
+	oLi.innerHTML = addCourse(testCourse);
+	oUl_course.appendChild(oLi);
+}
 
-			window.onmousemove = function(moveEvent) {
-				//如果在范围内
-				if (isMoving) {
-					//获取移动的宽度
-					var move = moveEvent.pageX - startPos;
-					var ev = {
-						oriWidth: oriWidth, // 控件最初的宽度
-						startTime: startTime, // mousedown时间
-						moveDistance: move, // 移动的距离（与最初位置相比）
-						downEvent: downEvent, // mousedown事件
-						moveEvent: moveEvent, // 当前move事件
-					}
-					try {
-						opt.onmousemove(_thisEl, ev); // 宽度设置由调用者决定
-					} catch (e) {
-						if (opt.isCatch) console.warn(e);
-						else throw e;
-					}
+function addCourse(testCourse) {
+	var res = "";
+	var oCourse;
+	var courseName = testCourse.courseName;
+	var classes = testCourse.classes;
+	res += "<div class=\"mycard\"><div class=\"card\"><div class=\"card-header\">";
+	res += courseName
+	res +=
+		"</div><div class=\"card-body\"><div id=\"courses\" class=\"course-selector\"><ul style=\"list-style: none; margin-left:-43px; \">";
+	for (var clz in classes) {
+		oCourse = new Classes(courseName, classes[clz].teachers, classes[clz].classtime, classes[clz].classroom, classes[clz]
+			.period);
+		res += addClass(oCourse);
+	}
+	res += "</ul></div></div></div></div>";
+	return res;
+}
 
-				}
-				//最后返回false;
-				return false;
-			};
-			//鼠标松开清空所有事件
-			window.onmouseup = function(upEvent) {
-				window.onmousemove = null;
-				window.onmouseup = null;
-				isMoving = false;
-				_parentEl.find('#move-mask-laver').remove();
-				if (opt.onmouseup) {
-					try {
-						opt.onmouseup(_thisEl, upEvent);
-					} catch (e) {
-						if (opt.isCatch) console.warn(e);
-						else throw e;
-					}
-				}
-			};
-			return false;
+function addClass(oCourse) {
+	var res = "";
+	res += "<li><div class=\"class-selector\" data-period=" + oCourse.period + " data-coursename=\""+oCourse.courseName + "\" data-classtime=\""+oCourse.classtime+"\" data-classroom=\""+oCourse.classroom+"\" data-teachers=\""+oCourse.teachers+ "\"><p>时间：";
+	res += oCourse.classtime;
+	res += "</p><p>地点：";
+	res += oCourse.classroom;
+	res += "</p><p>任课教师：";
+	res += oCourse.teachers;
+	res +=
+		"</p><div class=\"form-inline\"><input type=\"text\" class=\"mytxt\" id=\"coin\" placeholder=\"请输入选课币\" /><input class=\"btn btn-select\" type=\"button\" name=\"btn\" id=\"btn\" value=\"select\" onclick=fillTable(this) /></div></li>";
+	return res;
+}
+
+function fillTable(obj){
+	oDiv = obj.parentElement.parentElement;
+	period = oDiv.dataset.period.split(',');
+	name = oDiv.dataset.coursename;
+	time = oDiv.dataset.classtime;
+	room = oDiv.dataset.classroom;
+	teachers = oDiv.dataset.teachers;
+	var ot = document.getElementById("classtable");
+	var rown = 0;
+	var celln = 0;
+	for (var i = 0; i<ot.rows.length;i++){
+		for (var j = 0; j<ot.rows[0].cells.length; j++){
+			if(i == 2 || i == 5){
+				break;
+			}else if(ot.rows[i].cells[j].innerHTML.indexOf(name) != -1){
+				ot.rows[i].cells[j].innerHTML="";
+			}
 		}
-		return true;
-	});
+	}
+	for (var i = 0; i< period.length;){
+		rown = parseInt(period[i+1]-1);
+		celln = parseInt(period[i]);
+		if (rown >= 2) rown ++;
+		else if ( rown >= 5) rown ++;
+		ot.rows[rown].cells[celln].innerHTML = "<p>"+name+"</p>"+"<p>"+teachers+"</p>"+"<p>"+time+"</p>"+"<p>"+room+"</p>";
+		i+= 2;
+	}
+	
 }
-
-
-$(function() {
-	autoCntWidth();
-});
-
-
-function autoCntWidth() {
-	$('#cnt').width($('#cnt').parent().width() - $('#nav').width() - 5);
-}
-
-
-
-$('#nav').onEastDrag({
-	onmousemove: function(el, event) {
-		el.width(event.oriWidth + event.moveDistance);
-		autoCntWidth();
-	},
-	regionWidth: 10,
-});

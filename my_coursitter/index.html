@@ -2,208 +2,123 @@
 <html style="height: 100%;">
 	<head>
 		<meta charset="utf-8" />
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
 		<title></title>
-		<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<!-- <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> -->
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="js/jsMove.js"></script>
-		<style type="text/css">
-			/* document.documentElement.style.overflow='hidden'; */
-			.outer {
-				width: 1600px;
-				height: 900px;
-				left: -1600px;
-				float: left;
-				position: relative;
-				margin: 50px auto;
-				vertical-align: middle;
-				inline-block;
-				z-index: 2;
-			}
-
-			.bg {
-				width: 100%;
-				height: 100%;
-				position: fixed;
-				background: url("./bg.jpg") no-repeat fixed;
-				background-size: cover;
-				padding: 0px;
-				margin: 0px;
-				box-sizing: border-box;
-				z-index: -1;
-			}
-
-			#span {
-				width: 50px;
-				float: right;
-				text-align: center;
-				padding: 15px;
-				font-size: 16px;
-				color: white;
-				position: relative;
-				background: rgba(0, 0, 0, 0.31);
-			}
-			
-
-			#card-contain {
-				/* width: 100%; */
-				height: 100%;
-				float: left;
-				list-style: none;
-				font-size: 16px;
-				font: "黑体";
-				overflow: auto;
-				padding: 10px;
-				background-color: white;
-				background: rgba(255, 255, 255, 0.3)
-			}
-
-			#table-contain {
-				height: 100%;
-				margin-left: 30px;
-				border-radius: 10px;
-				overflow: hidden;
-			}
-
-			.card {
-				width: 300px;
-				text-align: center;
-				height: 200px;
-				margin: auto;
-				margin-top: 10px;
-				margin-bottom: 10px;
-				border-radius: 20px;
-				padding: 5px;
-				background-color: yellow;
-			}
-
-			td {
-				height: 100px;
-				text-align: center;
-				vertical-align: middle;
-
-			}
-		</style>
+		<script src="js/test.js"></script>
+		<script src="js/classes.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/zldcss.css" />
 		<script type="text/javascript">
 			window.onload = function() {
 				var oDiv1 = document.getElementById('div1');
 				var oBtn = document.getElementById('span');
 				var begin = getStyle(oDiv1, 'left')
-				begin= parseInt(begin.substr(0,begin.length-2));
-				span.onclick = function() {
-					if (oBtn.style.background == 'rgba(0, 0, 0, 0.31)'){
-						startMove(oDiv1, 'left', begin+oDiv1.offsetWidth);
-						oBtn.style.background = 'rgba(0, 255, 0, 0.31)';
-					}else{
-						startMove(oDiv1, 'left', begin);
-						oBtn.style.background = 'rgba(0, 0, 0, 0.31)';
-					}
-				};
+				begin = parseInt(begin.substr(0, begin.length - 2));
+				// 				oDiv1.onmouseover = function() {
+				// 					startMove(oDiv1, 'left', begin + oDiv1.offsetWidth);
+				// 				}
+				// 				oDiv1.onmouseout = function() {
+				// 					startMove(oDiv1, 'left', begin);
+				// 				}
+				var oUl_course = document.getElementById('courseList');
+				var oBtn_insert = document.getElementById('insert');
+				oBtn_insert.onclick = insertCard;
 			};
 		</script>
 	</head>
-	<body >
+	<body>
 		<div class="bg">
-			<div id='span'>
-				排课信息
+
+			<div id='insert' class="insert">
+				插入卡片
 			</div>
 			<div id="div1" class="outer">
-				
+				<div id='span' class="span mdui-ripple mdui-btn-raised">
+					排课信息
+				</div>
 				<div style="background: rgba(0, 0, 0, 0.3);width: 100%; height: 100%;">
 					<div style="height: 100%; padding: 40px;">
-						<div id="card-contain">
-							<li>
-								<div class="card"></div>
-							</li>
-							<li>
-								<div class="card"></div>
-							</li>
-							<li>
-								<div class="card"></div>
-							</li>
-							<li>
-								<div class="card"></div>
-							</li>
-							<li>
-								<div class="card"></div>
-							</li>
-							<li>
-								<div class="card"></div>
-							</li>
-							<li>
-								<div class="card"></div>
-							</li>
+						<div style="overflow: hidden; float: left; width: 320px; height: 100%;">
+							<div id="card-contain" class="card-contain">
+								<ul id="courseList" style="list-style: none;">
+									<!-- 这里插入课程 -->
+								</ul>
+							</div>
 						</div>
-						<div id="table-contain">
+						<div id="table-contain" class="table-contain">
 							<table class="table" style="height: 100%;">
-								<thead>
-									<td class="active"></td>
-									<td class="active">星期一</td>
-									<td class="active">星期二</td>
-									<td class="active">星期三</td>
-									<td class="active">星期四</td>
-									<td class="active">星期五</td>
-									<td class="active">星期六</td>
-									<td class="active">星期日</td>
+								<thead class="tbody2">
+									<td></td>
+									<td>星期一</td>
+									<td>星期二</td>
+									<td>星期三</td>
+									<td>星期四</td>
+									<td>星期五</td>
+									<td>星期六</td>
+									<td>星期日</td>
 								</thead>
-								<tbody>
-									<tr class="success">
-										<td class="active">第一大节</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
+								<tbody id="classtable">
+									<tr class="tbody1">
+										<td class="rowhead">第一大节</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
 									</tr>
-									<tr class="warning">
-										<td class="active">第二大节</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
+									<tr class="tbody1">
+										<td class="rowhead">第二大节</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
 									</tr>
-									<tr>
-										<td class="active" colspan="8" ;>午休</td>
+									<tr class="tbody2">
+										<td colspan="8">午休</td>
 									</tr>
-									<tr class="info">
-										<td class="active">第三大节</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
+									<tr class="tbody1">
+										<td class="rowhead">第三大节</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
 									</tr>
-									<tr class="danger">
-										<td class="active">第四大节</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
+									<tr class="tbody1">
+										<td class="rowhead">第四大节</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
 									</tr>
-									<tr>
-										<td class="active" colspan="8" ;>晚饭</td>
+									<tr class="tbody2">
+										<td colspan="8">晚饭</td>
 									</tr>
-									<tr class="success">
-										<td class="active">第五大节</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
-										<td class="active">...</td>
+									<tr class="
+										 tbody1">
+										<td class="rowhead">第五大节</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
+										<td>...</td>
 									</tr>
 								</tbody>
 
