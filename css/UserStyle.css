@@ -59,9 +59,16 @@ body {
 }
 .label_title {
     border-bottom: 1px solid #1b1e21;
-    padding: 5%;
-
+    padding: 3%;
+    /*margin-top: 20px;*/
 }
+
+.label_set {
+    height: auto;
+    display: inline-block;
+    width: 100%;
+}
+
 
 .label_button {
     margin: 0.1% ;
@@ -71,7 +78,7 @@ body {
 #label {
     z-index: 150;
     padding-top: 1%;
-    padding-bottom: 1%;
+    padding-bottom: 3%;
 }
 
 #class_table {
