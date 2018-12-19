@@ -20,23 +20,26 @@
                            class="form-control"
                            placeholder="Input search content here">
                 </div>
-                <button class="btn">SEARCH</button>
+                <button class="btn btn_search ">SEARCH</button>
             </form>
 
         </div>
     </div>
     <div class="row main-row">
         <div id="label" class="col-md-1 col-md-offset-1 tag">
-            something
-            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <br/>
-            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">s</span></button>
-            <br/>
-            <button type="button" class="close" aria-label="Close"><span aria-hidden="true" onclick="showFullLable()">s</span></button>
-            <br/>
-            <button type="button" class="close" aria-label="Close"><span aria-hidden="true" onclick="showSelectedLable()">s</span></button>
+            <div class="col-md-3">
+                some
 
-            another
+                <br/>
+                <button id="Edit" type="button" class="btn btn-primary " onclick="showFullLabel()">edit</button>
+                <button id="commit_Edit" type="button" class="btn btn-primary" onclick="showSelectedLabel()">Confirm</button>
+            </div>
+            <div id="all_label" class="col-md-9">
+                <div class="col-md-4">1</div>
+                <div class="col-md-4">2</div>
+                <div class="col-md-4">3</div>
+
+            </div>
         </div>
         <div id="a"  class=" col-md-offset-2 main-bg">
             <table id="class_table" class=" table table-striped table-hover  table1 ">

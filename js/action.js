@@ -1,21 +1,24 @@
 window.onload = function () {
-//     var oDiv1 = document.getElementById('label');
-//     oDiv1.onmouseover = function () {
-//         // changeSize(this, 500, 500);
-// };
-// oDiv1.onmouseout = function () {
-//     // changeSize(this, 200, 100);
-//
-// };
+    document.getElementById("commit_Edit").style.display = "none";
+    document.getElementById("all_label").style.display = "none";
+
+
 
 };
 
-function showFullLable() {
-        document.getElementById("label").classList.replace("col-md-1","col-md-4")
+function showFullLabel() {
+    document.getElementById("label").classList.replace("col-md-1", "col-md-4");
+    document.getElementById("Edit").style.display="none";
+    document.getElementById("commit_Edit").style.display = "inline";
+    document.getElementById("all_label").style.display = "inline";
 }
 
-function showSelectedLable() {
-    document.getElementById("label").classList.replace("col-md-4","col-md-1")
+function showSelectedLabel() {
+    document.getElementById("label").classList.replace("col-md-4","col-md-1");
+    document.getElementById("commit_Edit").style.display = "none";
+    document.getElementById("Edit").style.display = "inline";
+    document.getElementById("all_label").style.display = "none";
+
 
 }
 
