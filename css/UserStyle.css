@@ -117,3 +117,14 @@ tbody {
 #a {
     z-index: 100;
 }
+#myModal {
+    margin: 8%;
+    width: 80%;
+    height: 80%;
+}
+
+#class_card_body{
+    height: 500px;
+    width: 800px;
+
+}

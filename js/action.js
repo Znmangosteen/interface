@@ -117,10 +117,11 @@ $(document).ready(function () {
             minimumCountColumns: 2,
             smartDisplay:true,
         onClickRow:function (row,$element) {
-            alert(row.html);
-            $('.info').removeClass('info');//移除class
-            $($element).addClass('info');//添加class
-            $('.course_card').css("display", "inline-block");
+            // alert(row.html);
+            $('#myModal').modal('show');
+            // $('.info').removeClass('info');//移除class
+            // $($element).addClass('info');//添加class
+            // $('.course_card').css("display", "inline-block");
         },
         columns: [{
             field: 'class_id',

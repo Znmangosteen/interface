@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport">
     <title>Course</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -65,7 +66,39 @@
     </div>
 
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px;height: 600px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    面向对象设计与编程--课程信息
+                </h4>
+            </div>
+            <div id="class_card_body" class="modal-body row">
 
+                <div class="col-md-9">
+                    <h5>课程简介</h5>
+
+                    面向对象设计是一种软件设计方法，是一种工程化规范。面向对象设计模式解决的是“类与相互通信的对象之间的组织关系，包括它们的角色、职责、协作方式几个方面。
+                    面向对象设计模式是“好的面向对象设计”，所谓“好的面向对象设计”是那些可以满足“应对变化，提高复用”的设计。
+                </div>
+                <div class="col-md-3">
+
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>-->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 
 </body>
 
@@ -84,7 +117,7 @@
             Date:
             <select id="year" onchange="setMonth()"></select> year
             <select id="month" onchange="setDay()"></select> month
-            <select id="day" ></select> day<br>
+            <select id="day"></select> day<br>
 
             Departure Time:<select id="dhour"></select>:
             <select id="dminute"></select><br>
@@ -97,7 +130,6 @@
 
             <input class="add_f" type="button" value="Add Flight" onClick="onClickAddFlight()">
             <input class="close_dio" type="button" value="close" onclick="closeDialog()"><br>
-
 
 
         </form>
