@@ -1,7 +1,7 @@
 .outer {
 	width: 1600px;
 	height: 900px;
-	left: -1600px;
+	/* left: -1600px; */
 	float: left;
 	position: relative;
 	margin: 50px auto;
@@ -72,10 +72,10 @@
 	width: 300px;
 	text-align: center;
 	height: 200px;
-	margin-bottom: 10px;
+	/* margin-bottom: 10px; */
 	border-radius: 20px;
 	/* padding: 10px; */
-	background-color: rgba(255, 255, 255, 0.3);
+	/* background-color: rgba(255, 255, 255, 0.3); */
 }
 
 .course-selector {
