@@ -1,4 +1,4 @@
-function Classes(courseName, teachers, classtime, classroom, period) {
+function Classes(courseName, teachers, classinfo, period, id, num) {
 	/**
 	 * teachers, classtime, classroom 都是string，用于调取直接在插入的div上显示
 	 * 格式示例：人工智能", "周二3-4/周五5-6", "荔园1栋101/荔园6栋403", "唐柯/赵耀
@@ -7,35 +7,43 @@ function Classes(courseName, teachers, classtime, classroom, period) {
 	 */
 	this.courseName = courseName;
 	this.teachers = teachers;
-	this.classtime = classtime;
-	this.classroom = classroom;
+	this.classinfo = classinfo;
 	this.period = period;
+	this.courseID = id;
+	this.classnum = num;
 	this.coins = 0;
 }
 
+//log 取消classtime和classroom，换成classinfo
 function getInfo() {
-	var testCourse = {
-		"courseName": "人工智能",
-		"classes": [{
-				"teachers": "tk / zy",
-				"classtime": "1 2 / 3 4",
-				"classroom": "ly1d101 / ly6d403",
-				"period": [1,2]
-			},
-			{
-				"teachers": "tk / zy",
-				"classtime": "2 3 / 5 4",
-				"classroom": "ly1d101 / ly6d403",
-				"period": [2,3, 5,4]
-			},
-			{
-				"teachers": "tk / zy",
-				"classtime": "3 3 / 4 3",
-				"classroom": "ly1d101 / ly6d403",
-				"period": [3,3,4,3]
-			}
-		]
-	}
+	var testCourse = [{
+			"courseName": "人工智能",
+			"courseID": "CS304",
+			"classes": [{
+					"teachers": "唐柯",
+					"classinfo": ["周二3-4节 荔园一栋101","周五5-6节 荔园6栋403"],
+					"classnum": 101,
+					"period": [2, 2, 5, 3]
+				},
+				{
+					"teachers": "唐柯",
+					"classinfo": ["周二3-4节 荔园一栋101","周三5-6节 荔园6栋403"],
+					"classnum": 101,
+					"period": [2, 2, 3, 3]
+				}
+			]
+		},
+		{
+			"courseName": "面向对象",
+			"courseID": "CS303",
+			"classes": [{
+				"teachers": "张誉群",
+					"classinfo": ["周四3-4节 荔园一栋101","周三5-6节 荔园6栋403"],
+					"classnum": 101,
+					"period": [4, 2, 3, 3]
+			}]
+		}
+	]
 
 	return testCourse;
 }
