@@ -132,7 +132,7 @@
 
 .tbody2 {
 	height: 40px;
-	background-color: rgba(210, 237, 255, 0.9);
+	background-color: rgba(210, 237, 255);
 	box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.4), 0 1px 10px 0 rgba(0,0,0,.12);
 }
 
@@ -177,4 +177,16 @@
 .rmbtn{
 	width: 20px;
 	background-color: rgba(0,0,0,0.3);
+}
+
+.show-coin{
+	font-size: 16px;
+	height: 40px;
+	text-align: center;
+	padding: 7px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom: 1px solid #000;
+	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+	background-color: rgba(210,237,255);
 }

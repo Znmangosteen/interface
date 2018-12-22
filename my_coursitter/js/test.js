@@ -36,7 +36,8 @@ function addCourse(testCourse) {
 	}
 	res +=
 		"</ul></div></div><div class=\"card-footer\"><input type=\"text\" class=\"mytxt\" id=\"coin\" placeholder=\"请输入选课币\"></div></div></div>";
-	return res;
+	
+		return res;
 }
 
 function addClass(oCourse) {
@@ -129,6 +130,7 @@ function fillTable(obj) {
 		window.rcoin -= parseInt(coin);
 		console.log(window.rcoin);
 	}
+	updateRcoin();
 }
 
 function removeLi(obj) {
@@ -149,6 +151,7 @@ function removeLi(obj) {
 	oDiv.innerHTML = '';
 	startMove(oDiv, 'height', 0);
 	setTimeout("oUl.removeChild(oLi);", 2000);
+	updateRcoin();
 	console.log(window.rcoin);
 
 }
@@ -167,6 +170,7 @@ function clearCourse(ot, aBtns) {
 			i += 2;
 		}
 		window.rcoin += parseInt(window.data[id].coin)
+		updateRcoin();
 		console.log(window.rcoin);
 	}
 }
@@ -196,4 +200,9 @@ function hasConflict(ot, period) {
 		i += 2;
 	}
 	return false;
+}
+
+function updateRcoin(){
+	var oDiv = document.getElementById("show-coin");
+	oDiv.innerHTML = "余币量：" + window.rcoin;
 }
