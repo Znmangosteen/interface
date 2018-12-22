@@ -180,9 +180,9 @@ function hasConflict(ot, period) {
 		if (rown >= 2) rown++;
 		else if (rown >= 5) rown++;
 		if (ot.rows[rown].cells[celln].innerHTML != "") {
-			temp = ot.rows[rown].cells[celln].firstElementChild
-			alert("与课程" + temp + "冲突，请修改班级！")
-			return true
+			temp = ot.rows[rown].cells[celln].firstElementChild.innerHTML;
+			alert("与课程 " + temp + " 冲突，请修改班级！")
+			return true;
 		}
 		i += 2;
 	}
