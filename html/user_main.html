@@ -7,7 +7,7 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap-table/1.12.2/bootstrap-table.css" rel="stylesheet"/>
-
+    <link rel="stylesheet" href="http://cdn.w3schools.wang/w3.css">
 
     <!--suppress JSUnresolvedLibraryURL -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -16,10 +16,14 @@
     <script src="https://cdn.bootcss.com/bootstrap-table/1.12.2/bootstrap-table.js"></script>
     <!--suppress JSUnresolvedLibraryURL -->
     <script src="https://cdn.bootcss.com/bootstrap-table/1.12.2/locale/bootstrap-table-zh-CN.js"></script>
-    <script type="text/javascript" src="../js/action.js"></script>
 
+    <script type="text/javascript" src="../js/action.js"></script>
+    <!--<script type="text/javascript" src="/static/js/action.js"></script>-->
 
     <link rel="stylesheet" href="../css/UserStyle.css">
+    <!--<link rel="stylesheet" href="/static/css/UserStyle.css">-->
+
+
 </head>
 <body>
 
@@ -67,26 +71,50 @@
 
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width: 800px;height: 600px;">
+    <div class="modal-dialog" style="width: 800px;height: 500px;">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
-                <h4 class="modal-title" id="myModalLabel">
+                <h3 class="modal-title" id="myModalLabel">
                     面向对象设计与编程--课程信息
-                </h4>
+                </h3>
             </div>
             <div id="class_card_body" class="modal-body row">
 
                 <div class="col-md-9">
-                    <h5>课程简介</h5>
-
-                    面向对象设计是一种软件设计方法，是一种工程化规范。面向对象设计模式解决的是“类与相互通信的对象之间的组织关系，包括它们的角色、职责、协作方式几个方面。
-                    面向对象设计模式是“好的面向对象设计”，所谓“好的面向对象设计”是那些可以满足“应对变化，提高复用”的设计。
+                    <h3>课程简介</h3>
+                    本课程系统完整地讲解当今主流的面向对象软件开发方法的分析、设计、实现及重构方法。深入讲解UML语言的高级技术细节，以及近年来面向对象方法最新的发展趋势，结合最新研究成果，通过大量、丰富、完整、不同领域、应用不同技术的案例将其中的关键知识点串联起来，便于理解和应用。本课程集理论性、实用性、研究性、前沿性一体，为工程硕士研究生日后从事大型软件系统的分析设计、系统重构以及建立企业软件开发架构，或从事软件方法学领域应用基础研究提供启发性理论指导及借鉴。本课程包含多个完整的案例，涵盖了对不同类型多种软件开发平台建模的各个阶段的完整案例。结合软件建模领域的发展趋势，增加了分析模式、设计模式、软件重构及模型驱动方面等知识点的介绍。对UML中的高级的概念和国际上面向对象方法学大师的著作与思想也逐渐补充讲解，体现课程的理论深度。本课程将邀请面向对象领域著名学者北京大学信息科学技术学院邵维忠教授和麻志毅副教授讲解某些章节，并对面向对象方法学中的某些关键问题进行讨论。
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" style="height: 100%">
+                    <div style="height: 20%;border: black 1px">
+                        <button type="button" class="btn btn-primary" style="margin: 25%">选择课程</button>
 
+                    </div>
+                    <div style="height: 75% ; overflow: auto">
+                        <div class="w3-khaki w3-hover-shadow w3-center">
+                            <p> 一班:<br/>
+                                周一 1-2节<br/>
+                                一教101 王老师<br/>
+                                周二 1-2节<br/>
+                                一教101 王老师</p>
+                        </div>
+                        <div class="w3-light-green w3-hover-shadow w3-center">
+                            <p> 一班:<br/>
+                                周一 1-2节<br/>
+                                一教101 王老师<br/>
+                                周二 1-2节<br/>
+                                一教101 王老师</p>
+                        </div>
+                        <div class="w3-lime w3-hover-shadow w3-center">
+                            <p> 一班:<br/>
+                                周一 1-2节<br/>
+                                一教101 王老师<br/>
+                                周二 1-2节<br/>
+                                一教101 王老师</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!--<div class="modal-footer">
@@ -102,7 +130,7 @@
 
 </body>
 
-<dialog id="b" class="course_card">
+<!--<dialog id="b" class="course_card">
     <div id="div1">
 
         <h3>Add Flight</h3>
@@ -134,6 +162,6 @@
 
         </form>
     </div>
-</dialog>
+</dialog>-->
 
 </html>

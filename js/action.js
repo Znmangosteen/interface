@@ -112,7 +112,7 @@ $(document).ready(function () {
             uniqueId: 'index', //将index列设为唯一索引
             striped: true,
             // search: true,
-            height:650,
+            height:655,
             // showRefresh: true,
             minimumCountColumns: 2,
             smartDisplay:true,
@@ -188,7 +188,6 @@ function showSelectedLabel() {
     document.getElementById("Edit").style.display = "inline";
     document.getElementById("all_label").style.display = "none";
     document.getElementById("selected_label").classList.replace("col-md-2", "col-md-12");
-
 }
 
 function generate_labels() {
