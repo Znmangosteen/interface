@@ -78,10 +78,7 @@ function fillTable(obj) {
 	} else if (isNaN(coin) || coin < 0) {
 		alert("请输入一个正整数!")
 		return;
-	} else if (coin > rcoin) {
-		alert("当前选课币不足！")
-		return;
-	}
+	} 
 
 	if (obj.className == "btn mybtn-select-active") {
 		clearThisClass(ot, period);
@@ -95,6 +92,20 @@ function fillTable(obj) {
 		if (hasConflict(ot, period)) {
 			return;
 		}
+		//判断选课币是否充足
+		if(window.data[id]){
+			var courseCoin = window.data[id].coin;
+			if (coin - courseCoin > rcoin){
+				alert("当前选课币不足！当前余额：" + rcoin)
+			return;
+			}
+		}else{
+			if (coin > rcoin) {
+				alert("当前选课币不足！当前余额：" + rcoin)
+				return;
+			}
+		}
+
 		//清除该课程选中的班级信息
 		clearCourse(ot, aBtns);
 
