@@ -16,32 +16,37 @@ function Classes(courseName, teachers, classtime, classroom, period, id, num) {
 }
 
 function getInfo() {
-	var testCourse = {
-		"courseName": "人工智能",
-		"courseID":"CS304",
-		"classes": [{
-				"teachers": "tk / zy",
-				"classtime": "1 2 / 3 4",
-				"classroom": "ly1d101 / ly6d403",
-				"classnum": 100,
-				"period": [1,2]
-			},
-			{
-				"teachers": "tk / zy",
-				"classtime": "2 3 / 5 4",
-				"classroom": "ly1d101 / ly6d403",
-				"classnum": 101,
-				"period": [2,3, 5,4]
-			},
-			{
+	var testCourse = [{
+			"courseName": "人工智能",
+			"courseID": "CS304",
+			"classes": [{
+					"teachers": "tk / zy",
+					"classtime": "2 3 / 5 4",
+					"classroom": "ly1d101 / ly6d403",
+					"classnum": 101,
+					"period": [2, 3, 5, 4]
+				},
+				{
+					"teachers": "tk / zy",
+					"classtime": "3 3 / 4 3",
+					"classroom": "ly1d101 / ly6d403",
+					"classnum": 102,
+					"period": [3, 3, 4, 3]
+				}
+			]
+		},
+		{
+			"courseName": "面向对象",
+			"courseID": "CS303",
+			"classes": [{
 				"teachers": "tk / zy",
 				"classtime": "3 3 / 4 3",
 				"classroom": "ly1d101 / ly6d403",
 				"classnum": 102,
-				"period": [3,3,4,3]
-			}
-		]
-	}
+				"period": [3, 3, 4, 3]
+			}]
+		}
+	]
 
 	return testCourse;
 }
