@@ -1,97 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport">
     <title>Course</title>
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.12.2/bootstrap-table.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="http://cdn.w3schools.wang/w3.css">
+
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.12.2/bootstrap-table.js"></script>
+    <!--suppress JSUnresolvedLibraryURL -->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.12.2/locale/bootstrap-table-zh-CN.js"></script>
+
+    <script type="text/javascript" src="../js/action.js"></script>
+    <!--<script type="text/javascript" src="/static/js/action.js"></script>-->
+
     <link rel="stylesheet" href="../css/UserStyle.css">
+    <!--<link rel="stylesheet" href="/static/css/UserStyle.css">-->
+
+
 </head>
 <body>
+
+
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-11 search-area col-md-offset-1">
+        <div class="col-md-12 search-area col-md-offset-1">
             <form class="form-inline">
                 <div class="input-wrapper">
                     <input type="text"
                            class="form-control"
-                           placeholder="Input search content here">
+                           placeholder="">
                 </div>
-                <button class="btn">SEARCH</button>
+                <button id="search" type="button" class="btn btn_search " onclick="search_class()">搜索</button>
             </form>
 
         </div>
     </div>
     <div class="row main-row">
-        <div class="col-md-1 col-md-offset-1 tag">
-            something
-            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div id="label" class="col-md-1 col-md-offset-1 tag bg-info">
+            <div id="selected_label" class="col-md-12">
+
+                <button id="Edit" type="button" class="btn btn-primary " onclick="showFullLabel()">编辑</button>
+                <button id="commit_Edit" style="display: none" type="button" class="btn btn-primary"
+                        onclick="showSelectedLabel()">确认
+                </button>
+
+
+            </div>
+            <div id="all_label" style="display: none" class="col-md-9">
+
+
+            </div>
         </div>
-        <div class=" col-md-offset-2 main-bg">
-            <table class=" table table-striped table-hover  table1 ">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Markkkk</td>
-                    <td>Otto</td>
-                    <td>@mdooooo</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Markkkk</td>
-                    <td>Otto</td>
-                    <td>@mdooooo</td>
-                </tr><tr>
-                    <th scope="row">1</th>
-                    <td>Markkkk</td>
-                    <td>Otto</td>
-                    <td>@mdooooo</td>
-                </tr><tr>
-                    <th scope="row">1</th>
-                    <td>Markkkk</td>
-                    <td>Otto</td>
-                    <td>@mdooooo</td>
-                </tr><tr>
-                    <th scope="row">1</th>
-                    <td>Markkkk</td>
-                    <td>Otto</td>
-                    <td>@mdooooo</td>
-                </tr><tr>
-                    <th scope="row">1</th>
-                    <td>Markkkk</td>
-                    <td>Otto</td>
-                    <td>@mdooooo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                </tbody>
+        <div id="a" class=" col-md-offset-2  main-bg container">
+            <!--<table id="class_table" class=" table table-striped table-hover  table1 ">-->
+
+            <table class="table table-striped table-bordered table-hover" id="class_table"></table>
+
+
             </table>
         </div>
 
     </div>
 
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px;height: 500px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h3 class="modal-title" id="myModalLabel">
+                    面向对象设计与编程--课程信息
+                </h3>
+            </div>
+            <div id="class_card_body" class="modal-body row">
 
+                <div class="col-md-9">
+                    <h3>课程简介</h3>
+                    本课程系统完整地讲解当今主流的面向对象软件开发方法的分析、设计、实现及重构方法。深入讲解UML语言的高级技术细节，以及近年来面向对象方法最新的发展趋势，结合最新研究成果，通过大量、丰富、完整、不同领域、应用不同技术的案例将其中的关键知识点串联起来，便于理解和应用。本课程集理论性、实用性、研究性、前沿性一体，为工程硕士研究生日后从事大型软件系统的分析设计、系统重构以及建立企业软件开发架构，或从事软件方法学领域应用基础研究提供启发性理论指导及借鉴。本课程包含多个完整的案例，涵盖了对不同类型多种软件开发平台建模的各个阶段的完整案例。结合软件建模领域的发展趋势，增加了分析模式、设计模式、软件重构及模型驱动方面等知识点的介绍。对UML中的高级的概念和国际上面向对象方法学大师的著作与思想也逐渐补充讲解，体现课程的理论深度。本课程将邀请面向对象领域著名学者北京大学信息科学技术学院邵维忠教授和麻志毅副教授讲解某些章节，并对面向对象方法学中的某些关键问题进行讨论。
+                </div>
+                <div class="col-md-3" style="height: 100%">
+                    <div style="height: 20%;border: black 1px">
+                        <button type="button" class="btn btn-primary" style="margin: 25%">选择课程</button>
+
+                    </div>
+                    <div style="height: 75% ; overflow: auto">
+                        <div class="w3-khaki w3-hover-shadow w3-center">
+                            <p> 一班:<br/>
+                                周一 1-2节<br/>
+                                一教101 王老师<br/>
+                                周二 1-2节<br/>
+                                一教101 王老师</p>
+                        </div>
+                        <div class="w3-light-green w3-hover-shadow w3-center">
+                            <p> 一班:<br/>
+                                周一 1-2节<br/>
+                                一教101 王老师<br/>
+                                周二 1-2节<br/>
+                                一教101 王老师</p>
+                        </div>
+                        <div class="w3-lime w3-hover-shadow w3-center">
+                            <p> 一班:<br/>
+                                周一 1-2节<br/>
+                                一教101 王老师<br/>
+                                周二 1-2节<br/>
+                                一教101 王老师</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>-->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 
 </body>
+
+<!--<dialog id="b" class="course_card">
+    <div id="div1">
+
+        <h3>Add Flight</h3>
+    </div>
+    <div id="div2">
+
+        <form name="form1">
+            Flight No.: <input class="info" type="text" name="flight-no"/><br>
+            Airline Company: <input class="info" type="text" name="airline-company"/><br>
+            From: <input class="info" type="text" name="from"/><br>
+            To: <input class="info" type="text" name="to"/><br>
+            Date:
+            <select id="year" onchange="setMonth()"></select> year
+            <select id="month" onchange="setDay()"></select> month
+            <select id="day"></select> day<br>
+
+            Departure Time:<select id="dhour"></select>:
+            <select id="dminute"></select><br>
+            Arrival Time:<select id="ahour"></select>:
+            <select id="aminute"></select><br>
+
+            <input type="radio" name="state" value="Normal">Normal
+            <input type="radio" name="state" value="Delayed">Delayed
+            <input type="radio" name="state" value="Cancelled">Cancelled<br>
+
+            <input class="add_f" type="button" value="Add Flight" onClick="onClickAddFlight()">
+            <input class="close_dio" type="button" value="close" onclick="closeDialog()"><br>
+
+
+        </form>
+    </div>
+</dialog>-->
+
 </html>
