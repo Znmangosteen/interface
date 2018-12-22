@@ -111,13 +111,14 @@ function fillTable(obj) {
 		clearCourse(ot, aBtns);
 
 		//添加当前选中班级信息
+		tempcolor = getRandomColor();
 		for (var i = 0; i < period.length;) {
 			var rown = parseInt(period[i + 1] - 1);
 			var celln = parseInt(period[i]);
 			if (rown >= 2) rown++;
 			else if (rown >= 5) rown++;
-
 			ot.rows[rown].cells[celln].innerHTML = "<p>" + name + "</p>" + "<p>" + teachers + "</p>" + classinfo;
+			ot.rows[rown].cells[celln].setAttribute("style",tempcolor);
 			i += 2;
 		}
 		obj.setAttribute("class","btn mybtn-select-active")
@@ -170,7 +171,9 @@ function clearCourse(ot, aBtns) {
 			if (rown >= 2) rown++;
 			else if (rown >= 5) rown++;
 			ot.rows[rown].cells[celln].innerHTML = "";
+			ot.rows[rown].cells[celln].setAttribute("style","background-color:none");
 			i += 2;
+
 		}
 		window.rcoin += parseInt(window.data[id].coin);
 		postData('POST', window.data[id]);
@@ -186,6 +189,7 @@ function clearThisClass(ot, period) {
 		if (rown >= 2) rown++;
 		else if (rown >= 5) rown++;
 		ot.rows[rown].cells[celln].innerHTML = "";
+		ot.rows[rown].cells[celln].setAttribute("style","background-color:none");
 		i += 2;
 	}
 }
@@ -214,7 +218,9 @@ function updateRcoin(){
 }
 
 function getRandomColor(){
-	colorset = ["#fabb00", "#fafa00", "#bbfa00", "#00fafa","#bb00fa", "#ffb3b3"]
+	colorset = ["#fabb00", "#fafa00", "#bbfa00", "#00fafa","#bb00fa", "#ffb3b3"];
+	a = Math.floor(colorset.length*Math.random());
+	return "background-color:"+colorset[a];
 }
 
 function postData(_type, _data){
