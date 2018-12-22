@@ -1,39 +1,40 @@
-var class_data=[{
+var class_data = [{
+    "class_id": "CS305",
+    "class_name": "人工智能",
+    "credit": "3",
+    "lecturer": "唐珂/唐珂/唐珂",
+    "capacity": "5",
+    "current_number": "6",
+    "note":"课程系统完整地讲解当今整地讲解当今整地讲解当今整地讲解当今主流当今整地对..."
+}, {
     "class_id": "1",
     "class_name": "2",
     "credit": "3",
     "lecture": "4",
     "capacity": "5",
     "current_number": "6"
-},{
+}, {
     "class_id": "1",
     "class_name": "2",
     "credit": "3",
     "lecture": "4",
     "capacity": "5",
     "current_number": "6"
-},{
+}, {
     "class_id": "1",
     "class_name": "2",
     "credit": "3",
     "lecture": "4",
     "capacity": "5",
     "current_number": "6"
-},{
+}, {
     "class_id": "1",
     "class_name": "2",
     "credit": "3",
     "lecture": "4",
     "capacity": "5",
     "current_number": "6"
-},{
-    "class_id": "1",
-    "class_name": "2",
-    "credit": "3",
-    "lecture": "4",
-    "capacity": "5",
-    "current_number": "6"
-},{
+}, {
     "class_id": "1",
     "class_name": "2",
     "credit": "3",
@@ -52,44 +53,44 @@ window.onload = function () {
 };
 
 
-
 $(document).ready(function () {
-    var class_data=[{
+    var class_data = [{
+        "class_id": "1",
+        "class_name": "2",
+        "credit": "3",
+        "lecture": "4",
+        "capacity": "5",
+        "current_number": "6",
+        "note":"课程系统完今主流当今整地对程系统完今主流当今整地对程系统完今主流当今整地对..."
+    }, {
         "class_id": "1",
         "class_name": "2",
         "credit": "3",
         "lecture": "4",
         "capacity": "5",
         "current_number": "6"
-    },{
+    }, {
         "class_id": "1",
         "class_name": "2",
         "credit": "3",
         "lecture": "4",
         "capacity": "5",
         "current_number": "6"
-    },{
+    }, {
         "class_id": "1",
         "class_name": "2",
         "credit": "3",
         "lecture": "4",
         "capacity": "5",
         "current_number": "6"
-    },{
+    }, {
         "class_id": "1",
         "class_name": "2",
         "credit": "3",
         "lecture": "4",
         "capacity": "5",
         "current_number": "6"
-    },{
-        "class_id": "1",
-        "class_name": "2",
-        "credit": "3",
-        "lecture": "4",
-        "capacity": "5",
-        "current_number": "6"
-    },{
+    }, {
         "class_id": "1",
         "class_name": "2",
         "credit": "3",
@@ -98,25 +99,26 @@ $(document).ready(function () {
         "current_number": "6"
     }];
     $('#class_table').bootstrapTable({
-        data:class_data,
-            editable:true,//开启编辑模式
-            clickToSelect: true,
-            cache: false,
-            // showToggle:true, //显示切换按钮来切换表/卡片视图。
-            // showPaginationSwitch:true, //显示分页切换按钮
-            pagination: true,
-            classes:'table-no-bordered',
-            pageList: [25],
-            pageSize:15,
-            pageNumber:1,
-            uniqueId: 'index', //将index列设为唯一索引
-            striped: true,
-            // search: true,
-            height:655,
-            // showRefresh: true,
-            minimumCountColumns: 2,
-            smartDisplay:true,
-        onClickRow:function (row,$element) {
+        data: class_data,
+        editable: true,//开启编辑模式
+        clickToSelect: true,
+        cache: false,
+        // showToggle:true, //显示切换按钮来切换表/卡片视图。
+        // showPaginationSwitch:true, //显示分页切换按钮
+        pagination: true,
+        classes: 'table-no-bordered',
+        pageList: [25],
+        pageSize: 15,
+        pageNumber: 1,
+        uniqueId: 'index', //将index列设为唯一索引
+        striped: true,
+
+        // search: true,
+        height: 655,
+        // showRefresh: true,
+        minimumCountColumns: 2,
+        smartDisplay: true,
+        onClickRow: function (row, $element) {
             // alert(row.html);
             $('#myModal').modal('show');
             // $('.info').removeClass('info');//移除class
@@ -125,22 +127,25 @@ $(document).ready(function () {
         },
         columns: [{
             field: 'class_id',
-            title: '课程编号'
+            title: '课程编号',
+            class:"col-md-1"
         }, {
             field: 'class_name',
-            title: '课程名称'
+            title: '课程名称',
+            class:"col-md-1"
         }, {
             field: 'credit',
-            title: '学分'
+            title: '学分',
+            class:"col-md-1 text-center"
         }, {
             field: 'lecturer',
-            title: '任课教师'
+            title: '任课教师',
+            class:"col-md-1"
         }, {
-            field: 'capacity',
-            title: '课程容量'
-        }, {
-            field: 'current_number',
-            title: '已选人数'
+            field: 'note',
+            title: '备注',
+            rowspan:1,
+            class:"col-md-8"
         },
         ],
 
@@ -154,7 +159,7 @@ function search_class() {
         "class_name": "2",
         "credit": "3",
         "lecture": "4",
-        "lecturer":"ZLDNB",
+        "lecturer": "ZLDNB",
         "capacity": "5",
         "current_number": "6"
     };
@@ -169,15 +174,15 @@ function showFullLabel() {
     document.getElementById("all_label").style.display = "inline";
     document.getElementById("selected_label").classList.replace("col-md-12", "col-md-2");
 
-    var data = {
-        "class_id": "1",
-        "class_name": "2",
-        "credit": "3",
-        "lecture": "4",
-        "capacity": "5",
-        "current_number": "6"
-    };
-    $('#class_table').bootstrapTable('prepend', data);
+    /*    var data = {
+            "class_id": "1",
+            "class_name": "2",
+            "credit": "3",
+            "lecture": "4",
+            "capacity": "5",
+            "current_number": "6"
+        };
+        $('#class_table').bootstrapTable('prepend', data);*/
 
 
 }
@@ -191,11 +196,11 @@ function showSelectedLabel() {
 }
 
 function generate_labels() {
-    var labels_title = {"grade": "面向年级", "character": "课程性质", "department": "开课院系", "week": "星期", "time": "节次"};
+    var labels_title = {"grade": "面向年级", "character": "课程性质", "department": "面向院系", "week": "星期", "time": "节次"};
     var labels = {
         "grade": "大一 大二 大三 大四",
         "character": "必修 选修",
-        "department": "通识基础部 数学系 物理系 化学系 生物系 计算机系 电子系 地空系 海洋系 材料系 环境系 机械系 生医工系 金融系 人文中心 社科中心 语言中心 艺术中心 体育中心",
+        "department": "通识基础 数学系 物理系 化学系 生物系 计算机系 电子系 地空系 海洋系 材料系 环境系 机械系 生医工系 金融系 人文中心 社科中心 语言中心 艺术中心 体育中心",
         "week": "星期一 星期二 星期三 星期四 星期五 星期六 星期日",
         "time": "1-2节 3-4节 5-6节 7-8节 9-10节 11节"
     };
@@ -217,11 +222,14 @@ function generate_labels() {
 
             var single_label = document.createElement("button");
             // single_label.id = label_name;
-            single_label.classList.add("btn");
-            single_label.classList.add("btn-info");
-            single_label.classList.add("col-md-3");
             // single_label.classList.add("label_button");
+
             single_label.setAttribute("onclick", "select_label(this)");
+
+
+            single_label.setAttribute("class", "w3-btn w3-white w3-border w3-border col-md-3");
+            // single_label.classList.add("btn");
+            single_label.setAttribute("style", "padding:5px;text-align: center;");
             single_label.setAttribute("title", "unselected");
             single_label.setAttribute("id", label_name);
             single_label.innerHTML = label_name;
@@ -249,18 +257,24 @@ function copy(obj) {
 
 function select_label(obj) {
     if (obj.title === "unselected") {
-        obj.classList.replace("btn-info", "btn-success");
+        // obj.classList.replace("btn-info", "btn-success");
+        obj.setAttribute("class", "w3-btn w3-indigo w3-border col-md-3 ");
+
         obj.setAttribute("title", "selected");
         var show_it = obj.cloneNode(true);
         show_it.innerHTML = obj.innerHTML;
         show_it.setAttribute("id", "show_" + obj.id);
         show_it.setAttribute("title", obj.id + "show_only");
-        show_it.classList.replace("col-md-3", "col-md-12");
+        // show_it.classList.replace("col-md-3", "col-md-12");
+
+        show_it.setAttribute("class", "w3-btn w3-indigo w3-border col-md-12 ");
         document.getElementById("selected_label").appendChild(show_it);
 
     } else if (obj.title === "selected") {
 
-        obj.classList.replace("btn-success", "btn-info");
+        // obj.classList.replace("btn-success", "btn-info");
+        obj.setAttribute("class", "w3-btn w3-white w3-border w3-border col-md-3");
+
         obj.setAttribute("title", "unselected");
         var shown = document.getElementById("show_" + obj.id);
         document.getElementById("selected_label").removeChild(shown);
@@ -268,9 +282,10 @@ function select_label(obj) {
     else {
         var cname = obj.id;
         var true_name = cname.substring(5);
-        document.getElementById("selected_label").removeChild(obj);
+        obj.parentElement.removeChild(obj);
         obj = document.getElementById(true_name);
         obj.classList.replace("btn-success", "btn-info");
+        obj.setAttribute("class", "w3-btn w3-white w3-border w3-border col-md-3");
         obj.setAttribute("title", "unselected");
     }
 
