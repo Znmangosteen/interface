@@ -94,12 +94,12 @@
 	/* background-color: aquamarine; */
 }
 
-.btn-select {
-	/* height: 36px; */
+/* .btn-select {
 	width: 65px;
 	float: right;
 	background-color: #18BFF6;
-}
+} */
+
 
 .mytxt {
 	-webkit-appearance: none;
@@ -165,6 +165,15 @@
 	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
 	background-color: rgba(210,237,255);
 }
+
+.mybtn-select-active {
+	/* height: 36px; */
+	margin-left: 10px;
+	width: 65px;
+	float: right;
+	background-color: greenyellow;
+}
+
 .rmbtn{
 	width: 20px;
 	background-color: rgba(0,0,0,0.3);

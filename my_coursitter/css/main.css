@@ -2036,7 +2036,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 .protected button.fancy-button:focus,
 .protected button.focus.fancy-button {
 	outline: 0;
-	box-shadow: 0 0 0 3px rgba(15, 217, 183, .25)
+	box-shadow: greenyellow
 }
 
 .btn.disabled,

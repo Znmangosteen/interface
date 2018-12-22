@@ -60,7 +60,7 @@ function addClass(oCourse) {
 function fillTable(obj) {
 	oDiv = obj.parentElement;
 	oUl = oDiv.parentElement.parentElement;
-	aBtns = oUl.getElementsByClassName('mybtn-select');
+	aBtns = oUl.getElementsByClassName('btn mybtn-select-active');
 	period = oDiv.dataset.period.split(',');
 	name = oDiv.dataset.coursename;
 	id = oDiv.dataset.courseid;
@@ -71,7 +71,6 @@ function fillTable(obj) {
 	oCard = oUl.parentElement.parentElement.parentElement;
 	ot = document.getElementById("classtable");
 	aIn = oCard.getElementsByClassName('mytxt');
-	// console.log(aIn)
 	coin = aIn[0].value;
 	if (coin == '') {
 		alert("您还未分配选课币！")
@@ -84,10 +83,9 @@ function fillTable(obj) {
 		return;
 	}
 
-
-	if (obj.title == "pressed") {
+	if (obj.className == "btn mybtn-select-active") {
 		clearThisClass(ot, period);
-		obj.setAttribute("title", "released");
+		obj.setAttribute("class","btn mybtn-select")
 		window.rcoin += parseInt(window.data[id].coin)
 		delete window.data[id];
 		console.log(window.data);
@@ -110,7 +108,8 @@ function fillTable(obj) {
 				"<p>" + room + "</p>";
 			i += 2;
 		}
-		obj.setAttribute("title", "pressed");
+		obj.setAttribute("class","btn mybtn-select-active")
+
 		console.log(window.data)
 		window.data[id] = {
 			"coin": coin,
@@ -127,7 +126,7 @@ function removeLi(obj) {
 	oUl = oLi.parentElement;
 	ot = document.getElementById("classtable");
 	id = oDiv.getElementsByClassName('class-selector')[0].dataset.courseid;
-	aBtns = oDiv.getElementsByClassName('mybtn-select');
+	aBtns = oDiv.getElementsByClassName('btn mybtn-select-active');
 	//移除课程的时候课表更新！！！！！！！！！！
 	clearCourse(ot, aBtns);
 
@@ -145,20 +144,19 @@ function removeLi(obj) {
 
 function clearCourse(ot, aBtns) {
 	for (var i = 0; i < aBtns.length; i++) {
-		if (aBtns[i].title == "pressed") {
-			var tempperiod = aBtns[i].parentElement.dataset.period.split(',');
-			aBtns[i].setAttribute("title", "released");
-			for (var i = 0; i < tempperiod.length;) {
-				var rown = parseInt(tempperiod[i + 1] - 1);
-				var celln = parseInt(tempperiod[i]);
-				if (rown >= 2) rown++;
-				else if (rown >= 5) rown++;
-				ot.rows[rown].cells[celln].innerHTML = "";
-				i += 2;
-			}
-			window.rcoin += parseInt(window.data[id].coin)
-			console.log(window.rcoin);
+		var tempperiod = aBtns[i].parentElement.dataset.period.split(',');
+		aBtns[i].setAttribute("class","btn mybtn-select")
+
+		for (var i = 0; i < tempperiod.length;) {
+			var rown = parseInt(tempperiod[i + 1] - 1);
+			var celln = parseInt(tempperiod[i]);
+			if (rown >= 2) rown++;
+			else if (rown >= 5) rown++;
+			ot.rows[rown].cells[celln].innerHTML = "";
+			i += 2;
 		}
+		window.rcoin += parseInt(window.data[id].coin)
+		console.log(window.rcoin);
 	}
 }
 
