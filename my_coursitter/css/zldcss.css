@@ -71,7 +71,7 @@
 .mycard {
 	width: 300px;
 	text-align: center;
-	height: 200px;
+	height: 250px;
 	/* margin-bottom: 10px; */
 	border-radius: 20px;
 	/* padding: 10px; */
@@ -96,7 +96,6 @@
 
 .btn-select {
 	/* height: 36px; */
-	margin-left: 10px;
 	width: 65px;
 	float: right;
 	background-color: #18BFF6;
@@ -165,4 +164,8 @@
 	float: right;
 	box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
 	background-color: rgba(210,237,255);
+}
+.rmbtn{
+	width: 20px;
+	background-color: rgba(0,0,0,0.3);
 }

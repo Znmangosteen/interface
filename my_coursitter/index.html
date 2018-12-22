@@ -15,16 +15,17 @@
 		<link rel="stylesheet" type="text/css" href="css/zldcss.css" />
 		<script type="text/javascript">
 			window.onload = function() {
+				var oCoin = document.getElementById('rcoin');
 				var oDiv1 = document.getElementById('div1');
 				var oBtn = document.getElementById('span');
 				var begin = getStyle(oDiv1, 'left')
 				begin = parseInt(begin.substr(0, begin.length - 2));
-// 				oDiv1.onmouseover = function() {
-// 					startMove(oDiv1, 'left', begin + oDiv1.offsetWidth);
-// 				}
-// 				oDiv1.onmouseout = function() {
-// 					startMove(oDiv1, 'left', begin);
-// 				}
+				// 				oDiv1.onmouseover = function() {
+				// 					startMove(oDiv1, 'left', begin + oDiv1.offsetWidth);
+				// 				}
+				// 				oDiv1.onmouseout = function() {
+				// 					startMove(oDiv1, 'left', begin);
+				// 				}
 				var oUl_course = document.getElementById('courseList');
 				var oBtn_insert = document.getElementById('insert');
 				oBtn_insert.onclick = insertCard;
@@ -33,7 +34,6 @@
 	</head>
 	<body>
 		<div class="bg">
-
 			<div id='insert' class="insert">
 				插入卡片
 			</div>
@@ -46,6 +46,8 @@
 						<div style="overflow: hidden; float: left; width: 320px; height: 100%;">
 							<div id="card-contain" class="card-contain">
 								<ul id="courseList" style="list-style: none;">
+									<!-- 这里插入课程 -->
+									
 									<!-- 这里插入课程 -->
 								</ul>
 							</div>
