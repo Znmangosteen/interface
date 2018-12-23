@@ -199,7 +199,7 @@
 .outer {
 	width: 1230px;
 	height: 692px;
-	/* left: -1600px; */
+    left: -1230px;
 	float: left;
 	position: fixed;
 	margin: 50px auto;
@@ -215,7 +215,7 @@
 	float: right;
 	text-align: center;
 	margin-right: -50px;
-	top: 400px;
+	top: 250px;
 	padding: 15px;
 	font-size: 16px;
 	color: white;
@@ -269,7 +269,7 @@
 .course-selector {
 	height: 157px;
 	overflow: auto;
-
+    overflow-y: scroll;
 	width: 319px;
 }
 
@@ -319,7 +319,8 @@
 }
 
 .tbody2 {
-	height: 35px;
+	height: 30px;
+    overflow:hidden;
 	background-color: rgb(210, 237, 255);
 	box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.4), 0 1px 10px 0 rgba(0,0,0,.12);
 }
@@ -327,15 +328,17 @@
 .tbody1 td {
 	height: 85px;
 	width: 150px;
+    overflow:hidden;
+    font-size: 12px;
 	text-align: center;
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 1.0);
 }
 
 .tbody2 td {
 	font-size: 16px;
 	text-align: center;
 	width: 150px;
-	height: 35px;
+	height: 30px;
 	
 }
 

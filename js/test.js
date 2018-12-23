@@ -8,12 +8,12 @@ window.rcoin = 10000;
 // }
 // 
 
-function insertCard() {
+function insertCard(course) {
 	var oUl_course = document.getElementById('courseList');
-	var testCourse = getInfo();
-	for (var i = 0; i < testCourse.length; i++) {
+	// var testCourse = getInfo();
+	for (var i = 0; i < course.length; i++) {
 		var oLi = document.createElement('li');
-		oLi.innerHTML = addCourse(testCourse[i]);
+		oLi.innerHTML = addCourse(course[i]);
 		oUl_course.appendChild(oLi);
 	}
 

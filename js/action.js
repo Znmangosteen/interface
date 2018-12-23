@@ -1,47 +1,34 @@
-window.class_data = [{
-    "class_id": "CS305",
-    "class_name": "人工智能",
-    "credit": "3",
-    "lecturer": "唐珂/唐珂/唐珂",
-    "capacity": "5",
-    "current_number": "6",
-    "note":"课程系统完整地讲解当今整地讲解当今整地讲解当今整地讲解当今主流当今整地对..."
-}, {
-    "class_id": "1",
-    "class_name": "2",
-    "credit": "3",
-    "lecture": "4",
-    "capacity": "5",
-    "current_number": "6"
-}, {
-    "class_id": "1",
-    "class_name": "2",
-    "credit": "3",
-    "lecture": "4",
-    "capacity": "5",
-    "current_number": "6"
-}, {
-    "class_id": "1",
-    "class_name": "2",
-    "credit": "3",
-    "lecture": "4",
-    "capacity": "5",
-    "current_number": "6"
-}, {
-    "class_id": "1",
-    "class_name": "2",
-    "credit": "3",
-    "lecture": "4",
-    "capacity": "5",
-    "current_number": "6"
-}, {
-    "class_id": "1",
-    "class_name": "2",
-    "credit": "3",
-    "lecture": "4",
-    "capacity": "5",
-    "current_number": "6"
-}];
+window.class_data =[{
+    "courseName": "人工智能",
+    "courseID": "CS304",
+    "credit":3,
+    "note": "课程系统完整地讲解当今整地讲解当今整地讲解当今整地讲解当今主流当今整地对xxx...",
+    "classes": [{
+        "teachers": "唐柯",
+        "classinfo": ["周二3-4节 荔园一栋101","周五5-6节 荔园6栋403"],
+        "classnum": 101,
+        "period": [2, 2, 5, 3]
+    },
+        {
+            "teachers": "唐柯",
+            "classinfo": ["周二3-4节 荔园一栋101","周三5-6节 荔园6栋403"],
+            "classnum": 101,
+            "period": [2, 2, 3, 3]
+        }
+    ]
+},
+    {
+        "courseName": "面向对象",
+        "courseID": "CS303",
+        "classes": [{
+            "teachers": "张誉群",
+            "classinfo": ["周四3-4节 荔园一栋101","周三5-6节 荔园6栋403"],
+            "classnum": 101,
+            "period": [4, 2, 3, 3]
+        }]
+    }
+];
+
 window.onload = function () {
     document.getElementById("commit_Edit").style.display = "none";
     document.getElementById("all_label").style.display = "none";
@@ -49,76 +36,33 @@ window.onload = function () {
     for (var label in labels_obj) {
         document.getElementById("all_label").appendChild(labels_obj[label]);
     }
-    zldnb();
-    test.insertCard();
+    loadCourseTable();
+    insertCard(window.class_data);
 };
 
-function zldnb(){
+function loadCourseTable() {
     updateRcoin();
     var oCoin = document.getElementById('rcoin');
     var oDiv1 = document.getElementById('div1');
     var oBtn = document.getElementById('span');
     var begin = getStyle(oDiv1, 'left');
     begin = parseInt(begin.substr(0, begin.length - 2));
-    				oDiv1.onmouseover = function() {
-    					startMove(oDiv1, 'left', begin + oDiv1.offsetWidth);
-    				};
-    				oDiv1.onmouseout = function() {
-    					startMove(oDiv1, 'left', begin);
-    				};
+    oDiv1.onmouseover = function () {
+        startMove(oDiv1, 'left', begin + oDiv1.offsetWidth);
+    };
+    oDiv1.onmouseout = function () {
+        startMove(oDiv1, 'left', begin);
+    };
     var oUl_course = document.getElementById('courseList');
     var oBtn_insert = document.getElementById('insert');
-    oBtn_insert.onclick = insertCard();
+    // oBtn_insert.onclick = "insertCard()";
 }
 
 
 $(document).ready(function () {
-    var class_data = [{
-        "class_id": "1",
-        "class_name": "2",
-        "credit": "3",
-        "lecture": "4",
-        "capacity": "5",
-        "current_number": "6",
-        "note":"课程系统完今主流当今整地对程系统完今主流当今整地对程系统完今主流当今整地对..."
-    }, {
-        "class_id": "1",
-        "class_name": "2",
-        "credit": "3",
-        "lecture": "4",
-        "capacity": "5",
-        "current_number": "6"
-    }, {
-        "class_id": "1",
-        "class_name": "2",
-        "credit": "3",
-        "lecture": "4",
-        "capacity": "5",
-        "current_number": "6"
-    }, {
-        "class_id": "1",
-        "class_name": "2",
-        "credit": "3",
-        "lecture": "4",
-        "capacity": "5",
-        "current_number": "6"
-    }, {
-        "class_id": "1",
-        "class_name": "2",
-        "credit": "3",
-        "lecture": "4",
-        "capacity": "5",
-        "current_number": "6"
-    }, {
-        "class_id": "1",
-        "class_name": "2",
-        "credit": "3",
-        "lecture": "4",
-        "capacity": "5",
-        "current_number": "6"
-    }];
+
     $('#class_table').bootstrapTable({
-        data: class_data,
+        data: window.class_data,
         editable: true,//开启编辑模式
         clickToSelect: true,
         cache: false,
@@ -145,26 +89,26 @@ $(document).ready(function () {
             // $('.course_card').css("display", "inline-block");
         },
         columns: [{
-            field: 'class_id',
+            field: 'courseID',
             title: '课程编号',
-            class:"col-md-1"
+            class: "col-md-1"
         }, {
-            field: 'class_name',
+            field: 'courseName',
             title: '课程名称',
-            class:"col-md-1"
+            class: "col-md-1"
         }, {
             field: 'credit',
             title: '学分',
-            class:"col-md-1 text-center"
+            class: "col-md-1 text-center"
         }, {
             field: 'lecturer',
             title: '任课教师',
-            class:"col-md-1"
+            class: "col-md-2"
         }, {
             field: 'note',
             title: '备注',
-            rowspan:1,
-            class:"col-md-8"
+            rowspan: 1,
+            class: "col-md-7"
         },
         ],
 
@@ -172,17 +116,52 @@ $(document).ready(function () {
 });
 
 
+function refreshCourseTable(rdata) {
+    $('#class_table').bootstrapTable('removeAll');
+    $('#class_table').bootstrapTable('prepend', rdata);
+}
+
 function search_class() {
-    var data = {
-        "class_id": "1",
-        "class_name": "2",
-        "credit": "3",
-        "lecture": "4",
-        "lecturer": "ZLDNB",
-        "capacity": "5",
-        "current_number": "6"
-    };
-    $('#class_table').bootstrapTable('prepend', class_data);
+    var data = $('#searchContent').val(); //string
+    $.ajax({
+        type: 'GET',
+        url: "/searchCourse",
+        anysc: false,
+        data: JSON.stringify(data),  //转化字符串
+        contentType: 'application/json',
+        dataType:'json',
+        success: function (rdata) { //成功的话，得到消息
+            //rdata's type is json
+            //returnClass(data);
+        }
+    });
+    var rdata = [{
+        "courseName": "面向对象",
+        "courseID": "CS303",
+        "classes": [{
+            "teachers": "张誉群",
+            "classinfo": ["周四3-4节 荔园一栋101","周三5-6节 荔园6栋403"],
+            "classnum": 101,
+            "period": [4, 2, 3, 3]
+        }]
+    }];
+    refreshCourseTable(rdata);
+
+
+
+}
+
+function pull_course() {
+    window.class_data = [{
+        "courseName": "面向对象",
+        "courseID": "CS303",
+        "classes": [{
+            "teachers": "张誉群",
+            "classinfo": ["周四3-4节 荔园一栋101","周三5-6节 荔园6栋403"],
+            "classnum": 101,
+            "period": [4, 2, 3, 3]
+        }]
+    }];
 
 }
 
@@ -206,12 +185,61 @@ function showFullLabel() {
 
 }
 
+function searchByLebel() {
+    var datal = {"Grade": [], "Departments": [], "CourseType": [], "interval": [], "day": []}; //dictionary
+    $.ajax({
+        type: 'GET',
+        url: "/searchLabel",
+        anysc: false,
+        data: JSON.stringify(datal),  //转化字符串
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function (rdata) { //成功的话，得到消息
+            //rdata's type is json
+            //returnClass(data);
+        }
+    });
+    var rdata = [{
+        "courseName": "人工智能",
+        "courseID": "CS303",
+        "lecturer": "唐珂",
+        "classes": [{
+            "teachers": "唐珂",
+            "classinfo": ["周四3-4节 荔园一栋101","周三5-6节 荔园6栋403"],
+            "classnum": 101,
+            "period": [4, 2, 3, 3]
+        }]
+    },{
+        "courseName": "人工智能",
+        "courseID": "CS303",
+        "classes": [{
+            "teachers": "唐珂",
+            "classinfo": ["周四3-4节 荔园一栋101","周三5-6节 荔园6栋403"],
+            "classnum": 101,
+            "period": [4, 2, 3, 3]
+        }]
+    },{
+        "courseName": "人工智能",
+        "courseID": "CS303",
+        "classes": [{
+            "teachers": "唐珂",
+            "classinfo": ["周四3-4节 荔园一栋101","周三5-6节 荔园6栋403"],
+            "classnum": 101,
+            "period": [4, 2, 3, 3]
+        }]
+    }];
+    refreshCourseTable(rdata);
+
+}
+
 function showSelectedLabel() {
     document.getElementById("label").classList.replace("col-md-8", "col-md-1");
     document.getElementById("commit_Edit").style.display = "none";
     document.getElementById("Edit").style.display = "inline";
     document.getElementById("all_label").style.display = "none";
     document.getElementById("selected_label").classList.replace("col-md-2", "col-md-12");
+
+    searchByLebel();
 }
 
 function generate_labels() {
@@ -310,7 +338,7 @@ function select_label(obj) {
 
 }
 
-function add_class_row() {
+/*function add_class_row() {
     return {
         "class_id": "1",
         "class_name": "2",
@@ -319,10 +347,10 @@ function add_class_row() {
         "capacity": "5",
         "current_number": "6"
     };
-}
+}*/
 
-
+/*
 function show_class_card(obj) {
 
     alert("AMD!yes!")
-}
+}*/
