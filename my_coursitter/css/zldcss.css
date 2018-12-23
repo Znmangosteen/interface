@@ -101,24 +101,24 @@
 } */
 
 
-.mytxt {
-	-webkit-appearance: none;
-	border: solid;
-	box-sizing: border-box;
-	caret-color: var(--cr-input-focus-color);
-	color: var(--cr-input-color, var(--google-grey-900));
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit;
-	outline: none;
-	text-align: inherit;
-	text-overflow: ellipsis;
-	width: 200px;
-	background-color: var(--cr-input-input_-_background-color, var(--cr-input-background-color, var(--google-grey-refresh-100)));
-	border-top: var(--cr-input-input_-_border-top);
-	border-left: var(--cr-input-input_-_border-left);
-	border-right: var(--cr-input-input_-_border-right);
-}
+/*.mytxt {*/
+	/*-webkit-appearance: none;*/
+	/*border: solid;*/
+	/*box-sizing: border-box;*/
+	/*caret-color: var(--cr-input-focus-color);*/
+	/*color: var(--cr-input-color, var(--google-grey-900));*/
+	/*font-family: inherit;*/
+	/*font-size: inherit;*/
+	/*line-height: inherit;*/
+	/*outline: none;*/
+	/*text-align: inherit;*/
+	/*text-overflow: ellipsis;*/
+	/*width: 200px;*/
+	/*background-color: var(--cr-input-input_-_background-color, var(--cr-input-background-color, var(--google-grey-refresh-100)));*/
+	/*border-top: var(--cr-input-input_-_border-top);*/
+	/*border-left: var(--cr-input-input_-_border-left);*/
+	/*border-right: var(--cr-input-input_-_border-right);*/
+/*}*/
 
 .classList {
 	list-style: none;
