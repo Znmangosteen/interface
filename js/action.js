@@ -1,4 +1,4 @@
-var class_data = [{
+window.class_data = [{
     "class_id": "CS305",
     "class_name": "人工智能",
     "credit": "3",
@@ -49,8 +49,27 @@ window.onload = function () {
     for (var label in labels_obj) {
         document.getElementById("all_label").appendChild(labels_obj[label]);
     }
-
+    zldnb();
+    test.insertCard();
 };
+
+function zldnb(){
+    updateRcoin();
+    var oCoin = document.getElementById('rcoin');
+    var oDiv1 = document.getElementById('div1');
+    var oBtn = document.getElementById('span');
+    var begin = getStyle(oDiv1, 'left');
+    begin = parseInt(begin.substr(0, begin.length - 2));
+    				oDiv1.onmouseover = function() {
+    					startMove(oDiv1, 'left', begin + oDiv1.offsetWidth);
+    				};
+    				oDiv1.onmouseout = function() {
+    					startMove(oDiv1, 'left', begin);
+    				};
+    var oUl_course = document.getElementById('courseList');
+    var oBtn_insert = document.getElementById('insert');
+    oBtn_insert.onclick = insertCard();
+}
 
 
 $(document).ready(function () {
